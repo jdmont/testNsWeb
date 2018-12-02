@@ -1,0 +1,25 @@
+<br>
+<div>
+    <h3>Carga de archivos</h3>
+    <br>
+    <button mat-raised-button (click)="fileInputContent.click()">
+        <span>Seleccionar archivo Contenido</span>
+        <input #fileInputContent type="file" (change)="addContents($event)" style="display:none;" accept=".txt" />
+    </button>
+    <br>
+    <span>{{contentFileName}}</span>
+    <br><br>
+    <button mat-raised-button (click)="fileInputRegisters.click()">
+        <span>Seleccionar archivo Registrados</span>
+        <input #fileInputRegisters type="file" (change)="addRegisters($event)" style="display:none;" accept=".txt" />
+    </button>
+    <br>
+    <span>{{registersFileName}}</span>    
+    <br>
+    <h3>Procesamiento de archivos</h3>
+    <button mat-raised-button (click)="searchProcess()" [disabled]="!contentsData || !registersData">Resultados</button>
+    <br>
+    <div *ngFor = "let iresult of result">
+        <span>{{iresult}}</span>
+    </div>
+</div>
